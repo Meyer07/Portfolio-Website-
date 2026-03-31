@@ -169,7 +169,7 @@
         <h2>Get In Touch</h2>
         <p class="section-sub">I'm currently looking for opportunities in Software Engineering and Cyber Security. Feel free to reach out!</p>
         <div class="contact-links">
-            <a href="mailto:smeyer1@new.rr.com" class="btn-primary">Email Me</a>
+            <a href="smeyer1@new.rr.com" class="btn-primary">Email Me</a>
             <a href="https://github.com/Meyer07" class="btn-outline" target="_blank">GitHub</a>
             <a href="https://linkedin.com/in/samuelmeyeruwm" class="btn-outline" target="_blank">LinkedIn</a>
         </div>
@@ -179,7 +179,7 @@
         <p>© 2025 Sam Meyer · Built with HTML, CSS &amp; JavaScript</p>
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Filter logic
         const btns = document.querySelectorAll('.filter-btn');
         const cards = document.querySelectorAll('.project-card');
@@ -190,18 +190,8 @@
                 btn.classList.add('active');
                 const filter = btn.dataset.filter;
                 cards.forEach(card => {
-                    card.style.display = (filter === 'all' || categories.includes(filter));
+                    const categories = card.dataset.category.split(" ");
+                    card.style.display = (filter === "all" || categories.includes(filter)) ? "flex" : "none";
                 });
             });
         });
-
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(a => {
-            a.addEventListener('click', e => {
-                e.preventDefault();
-                document.querySelector(a.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-    </script>
-</body>
-</html>
