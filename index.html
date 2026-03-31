@@ -145,7 +145,7 @@
                 </div>
             </div>
 
-            <div class="project-card" data-category="Cyber Security">
+            <div class="project-card" data-category="cyber">
                 <div class="card-header">
                     <span class="card-tag cyber">Cyber Security</span>
                 </div>
@@ -190,7 +190,7 @@
                 btn.classList.add('active');
                 const filter = btn.dataset.filter;
                 cards.forEach(card => {
-                    card.style.display = (filter === 'all' || card.dataset.category === filter) ? 'flex' : 'none';
+                    card.style.display = (filter === 'all' || categories.includes(filter));
                 });
             });
         });
